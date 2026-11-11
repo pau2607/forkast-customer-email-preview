@@ -21,7 +21,7 @@ why the other records are not.
 npm install
 npm run report      # reads data/customers.csv, writes public/report.json
 npm run dev         # the screen, at /forkast-customer-email-preview/
-npm test            # 40 tests
+npm test            # 42 tests
 npm run typecheck
 npm run build
 ```
