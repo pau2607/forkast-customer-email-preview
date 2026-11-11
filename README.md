@@ -56,6 +56,15 @@ campaign owner controls and can act on.
 validation and are reported separately, so they cannot inflate the contact
 count.
 
+## Visual design
+
+Palette and typography follow forkast.me: Anton for headings and the
+eligible count, Inter for body text, and the site's teal (`#1B4C53`) and
+mint (`#53B2AC`). Dark mode reuses the site's deep teal. Status is always
+text, never colour alone, and the layout holds at 390 px with no horizontal
+scrolling. Added in #3, after the exercise itself: presentation only, no
+change to the processing module or the report format.
+
 ## One contact's path
 
 `ana@example.com`, from the file to the screen:
