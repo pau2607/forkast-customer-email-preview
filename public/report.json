@@ -1,8 +1,8 @@
 {
   "counts": {
     "contacts": 4,
-    "eligible": 2,
-    "excluded": 2,
+    "eligible": 1,
+    "excluded": 3,
     "rejectedRecords": 2
   },
   "contacts": [
@@ -23,9 +23,9 @@
       "recordIds": [
         "c3"
       ],
-      "status": "ELIGIBLE",
-      "reason": null,
-      "explanation": null
+      "status": "EXCLUDED",
+      "reason": "SUPPRESSED",
+      "explanation": "This address is on the campaign suppression list."
     },
     {
       "email": "marta@example.com",

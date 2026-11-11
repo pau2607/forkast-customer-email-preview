@@ -5,6 +5,7 @@ import type {
   Report,
   ValidRecord,
 } from "./types";
+import { normalizeEmail } from "./normalize";
 import { validateRecord } from "./validate";
 
 /** Deterministic string order. Avoids localeCompare, whose result varies by machine. */
@@ -52,7 +53,29 @@ function evaluateContact(email: string, records: ValidRecord[]): Contact {
   };
 }
 
-export function buildReport(rawRecords: RawRecord[]): Report {
+/**
+ * Campaign-level override, applied after eligibility. A listed address is
+ * excluded even when every one of its records opted in. Suppression also
+ * wins over an opt-out, so a contact that is both shows SUPPRESSED: it is
+ * the rule the campaign owner controls, and the one to act on.
+ */
+function applySuppression(
+  contact: Contact,
+  suppressed: ReadonlySet<string>,
+): Contact {
+  if (!suppressed.has(contact.email)) return contact;
+  return {
+    ...contact,
+    status: "EXCLUDED",
+    reason: "SUPPRESSED",
+    explanation: "This address is on the campaign suppression list.",
+  };
+}
+
+export function buildReport(
+  rawRecords: RawRecord[],
+  suppressionList: string[] = [],
+): Report {
   const validRecords: ValidRecord[] = [];
   const rejectedRecords: RejectedRecord[] = [];
 
@@ -69,8 +92,13 @@ export function buildReport(rawRecords: RawRecord[]): Report {
     else groups.set(record.email, [record]);
   }
 
+  const suppressed = new Set(
+    suppressionList.map(normalizeEmail).filter((email) => email !== ""),
+  );
+
   const contacts = [...groups.entries()]
     .map(([email, records]) => evaluateContact(email, records))
+    .map((contact) => applySuppression(contact, suppressed))
     .sort((a, b) => compare(a.email, b.email));
 
   rejectedRecords.sort((a, b) => compare(a.recordId, b.recordId));
