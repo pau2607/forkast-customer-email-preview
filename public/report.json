@@ -1,0 +1,70 @@
+{
+  "counts": {
+    "contacts": 4,
+    "eligible": 1,
+    "excluded": 3,
+    "rejectedRecords": 2
+  },
+  "contacts": [
+    {
+      "email": "ana@example.com",
+      "displayName": "Ana A",
+      "recordIds": [
+        "c1",
+        "c2"
+      ],
+      "status": "ELIGIBLE",
+      "reason": null,
+      "explanation": null
+    },
+    {
+      "email": "luis@example.com",
+      "displayName": "Luis",
+      "recordIds": [
+        "c3"
+      ],
+      "status": "EXCLUDED",
+      "reason": "SUPPRESSED",
+      "explanation": "This address is on the campaign suppression list."
+    },
+    {
+      "email": "marta@example.com",
+      "displayName": "Marta M",
+      "recordIds": [
+        "c4",
+        "c5"
+      ],
+      "status": "EXCLUDED",
+      "reason": "OPTED_OUT",
+      "explanation": "Record c5 set the preference to false."
+    },
+    {
+      "email": "sol@example.com",
+      "displayName": "Sol",
+      "recordIds": [
+        "c8"
+      ],
+      "status": "EXCLUDED",
+      "reason": "OPTED_OUT",
+      "explanation": "Record c8 set the preference to false."
+    }
+  ],
+  "rejectedRecords": [
+    {
+      "recordId": "c6",
+      "name": "Nico",
+      "email": "nico.example.com",
+      "optIn": "true",
+      "reason": "INVALID_EMAIL_FORMAT",
+      "explanation": "\"nico.example.com\" is not a valid email address."
+    },
+    {
+      "recordId": "c7",
+      "name": "Vera",
+      "email": "",
+      "optIn": "true",
+      "reason": "MISSING_EMAIL",
+      "explanation": "The email address is empty."
+    }
+  ]
+}

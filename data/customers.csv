@@ -1,0 +1,9 @@
+recordId,name,email,optIn
+c1,Ana," ana@example.com ",true
+c2,Ana A,ANA@EXAMPLE.COM,true
+c3,Luis,luis@example.com,true
+c4,Marta,marta@example.com,true
+c5,Marta M,MARTA@example.com,false
+c6,Nico,nico.example.com,true
+c7,Vera,,true
+c8,Sol,sol@example.com,false

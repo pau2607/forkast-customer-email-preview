@@ -1,0 +1,142 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #f6f6f4;
+  color: #1a1a1a;
+  font-family:
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    sans-serif;
+  line-height: 1.5;
+}
+
+.page {
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 1.25rem 1rem 3rem;
+}
+
+h1 {
+  font-size: 1.4rem;
+  margin: 0 0 0.75rem;
+}
+
+h2 {
+  font-size: 1.05rem;
+  margin: 1.75rem 0 0.6rem;
+}
+
+.summary {
+  margin: 0 0 1rem;
+}
+
+.summary strong {
+  font-size: 1.5rem;
+}
+
+.filter {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 0.75rem;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.6rem;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid #e2e2de;
+  border-radius: 8px;
+  padding: 0.75rem;
+}
+
+.card__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.card__name {
+  font-weight: 600;
+}
+
+.card__email,
+.card__why,
+.card__meta {
+  margin: 0.35rem 0 0;
+  overflow-wrap: anywhere;
+}
+
+.card__email {
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 0.85rem;
+  color: #444;
+}
+
+.card__why {
+  font-size: 0.9rem;
+}
+
+.card__meta {
+  font-size: 0.8rem;
+  color: #6b6b66;
+}
+
+.badge {
+  font-size: 0.75rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  border: 1px solid;
+  white-space: nowrap;
+}
+
+.badge--ok {
+  color: #1d5c3c;
+  border-color: #9ed3b5;
+  background: #eaf7f0;
+}
+
+.badge--off {
+  color: #7a3030;
+  border-color: #e0a8a8;
+  background: #fdeeee;
+}
+
+.badge--warn {
+  color: #6b4a06;
+  border-color: #e3c68a;
+  background: #fdf4e3;
+}
+
+.notice {
+  margin: 0;
+  padding: 0.75rem;
+  background: #fff;
+  border: 1px solid #e2e2de;
+  border-radius: 8px;
+}
+
+.notice--error {
+  border-color: #e0a8a8;
+  background: #fdeeee;
+}
+
+.muted {
+  color: #6b6b66;
+}

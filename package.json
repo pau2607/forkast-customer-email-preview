@@ -1,0 +1,39 @@
+{
+  "name": "forkast-customer-email-preview",
+  "version": "1.0.0",
+  "description": "Preview of which restaurant customers are eligible for an email campaign.",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "report": "tsx src/cli/generate-report.ts",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pau2607/forkast-customer-email-preview.git"
+  },
+  "keywords": [],
+  "author": "Paula Romero",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pau2607/forkast-customer-email-preview/issues"
+  },
+  "homepage": "https://github.com/pau2607/forkast-customer-email-preview#readme",
+  "dependencies": {
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.3.0",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.7",
+    "vitest": "^5.1.0"
+  }
+}
