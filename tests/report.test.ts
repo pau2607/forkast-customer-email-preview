@@ -83,4 +83,28 @@ describe("buildReport", () => {
   it("produces the same report when a row is repeated", () => {
     expect(buildReport([...FIXTURE, FIXTURE[2]])).toEqual(buildReport(FIXTURE));
   });
+
+  it("produces the same report when an opt-out row is repeated", () => {
+    expect(buildReport([...FIXTURE, FIXTURE[4]])).toEqual(buildReport(FIXTURE));
+  });
+
+  it("treats a padded opt-out as an opt-out, not as a rejected row", () => {
+    const rows: RawRecord[] = [
+      {
+        recordId: "d1",
+        name: "Dana",
+        email: "dana@example.com",
+        optIn: "true",
+      },
+      {
+        recordId: "d2",
+        name: "Dana",
+        email: "dana@example.com",
+        optIn: " false ",
+      },
+    ];
+    const report = buildReport(rows);
+    expect(report.counts.rejectedRecords).toBe(0);
+    expect(report.contacts[0].status).toBe("EXCLUDED");
+  });
 });
