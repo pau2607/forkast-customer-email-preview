@@ -26,10 +26,9 @@ export function chooseDisplayName(names: string[]): string {
 function evaluateContact(email: string, records: ValidRecord[]): Contact {
   const displayName = chooseDisplayName(records.map((r) => r.name));
   const recordIds = [...new Set(records.map((r) => r.recordId))].sort(compare);
-  const optedOut = records
-    .filter((r) => !r.optIn)
-    .map((r) => r.recordId)
-    .sort(compare);
+  const optedOut = [
+    ...new Set(records.filter((r) => !r.optIn).map((r) => r.recordId)),
+  ].sort(compare);
 
   if (optedOut.length > 0) {
     const label = optedOut.length === 1 ? "Record" : "Records";

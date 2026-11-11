@@ -45,8 +45,11 @@ it keeps the most complete name. The trade-off is that a long junk value
 would beat a clean short one. Taking the first record's name would be
 simpler but would depend on input order.
 
-**Preference values.** Only the exact strings `true` and `false` are
-accepted. `TRUE`, `yes` and `1` become rejected rows.
+**Preference values.** A record is accepted only when its preference field
+reads exactly `true` or `false`, ignoring surrounding whitespace. `TRUE`,
+`yes` and `1` become rejected rows. Whitespace is tolerated deliberately: a
+padded `false` is still an opt-out, and rejecting it would drop that
+opt-out from the contact's records and could flip the contact to eligible.
 
 **Suppression precedence.** A contact that is both opted out and on the
 suppression list is reported as `SUPPRESSED`, because that is the rule the
